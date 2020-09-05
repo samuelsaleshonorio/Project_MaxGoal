@@ -11,7 +11,8 @@ public class ArrowRotation : MonoBehaviour
     [SerializeField]private Image arrowSprite;
     // Angle
     public float zRotation;
-    public bool RotationLiberation = true;
+    public bool RotationLiberation = false;
+    public bool ForceLiberation = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,12 +48,11 @@ public class ArrowRotation : MonoBehaviour
     {
         if(RotationLiberation)
         {
-            float xMove = Input.GetAxis ("Mouse X");
             float yMove = Input.GetAxis ("Mouse Y");
 
             if(zRotation < 90)
             {
-                if(yMove > 0)
+                if(yMove < 0)
                 {
                     zRotation += 2.5f;
                 }
@@ -60,7 +60,7 @@ public class ArrowRotation : MonoBehaviour
 
             if(zRotation > 0)
             {
-                if(yMove < 0)
+                if(yMove > 0)
                 {
                     zRotation -= 2.5f;
                 }
@@ -80,5 +80,16 @@ public class ArrowRotation : MonoBehaviour
         {
             zRotation = 0;
         }
+    }
+
+    void OnMouseDown()
+    {
+        RotationLiberation = true;
+    }
+
+    void OnMouseUp()
+    {
+        RotationLiberation = false;
+        ForceLiberation = true;
     }
 }

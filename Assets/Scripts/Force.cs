@@ -8,9 +8,10 @@ public class Force : MonoBehaviour
     // RigidBody Component
     private Rigidbody2D _ball;
     // Force value
-    private float _force = 1000f;
+    private float _force = 0f;
     // ArrowRotation variable
     private ArrowRotation _rotation;
+    public Image arrowSprite2;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class Force : MonoBehaviour
     void Update()
     {
         ForceAplication();
+        ForceControl();
     }
 
     // Applicating force in the Rigidbody object
@@ -30,9 +32,29 @@ public class Force : MonoBehaviour
         float x = _force * Mathf.Cos(_rotation.zRotation * Mathf.Deg2Rad);
         float y = _force * Mathf.Sin(_rotation.zRotation * Mathf.Deg2Rad);
 
-        if(Input.GetKeyUp(KeyCode.Space))
+        if(_rotation.ForceLiberation)
         {
             _ball.AddForce(new Vector2(x,y)); 
+            _rotation.ForceLiberation = false;
+        }
+    }
+
+    void ForceControl()
+    {
+        if(_rotation.RotationLiberation)
+        {
+            float xMove = Input.GetAxis ("Mouse X");
+            if(xMove < 0)
+            {
+                arrowSprite2.fillAmount += 1 * Time.deltaTime;
+                _force = arrowSprite2.fillAmount * 1000;
+            }
+
+            if(xMove > 0)
+            {
+                arrowSprite2.fillAmount -= 1 * Time.deltaTime;
+                _force = arrowSprite2.fillAmount * 1000;
+            }
         }
     }
 }
