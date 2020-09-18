@@ -52,7 +52,7 @@ public class ArrowRotation : MonoBehaviour
 
             if(zRotation < 90)
             {
-                if(yMove < 0)
+                if(yMove > 0)
                 {
                     zRotation += 2.5f;
                 }
@@ -60,7 +60,7 @@ public class ArrowRotation : MonoBehaviour
 
             if(zRotation > 0)
             {
-                if(yMove > 0)
+                if(yMove < 0)
                 {
                     zRotation -= 2.5f;
                 }

@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Force : MonoBehaviour
 {
     // RigidBody Component
-    private Rigidbody2D _ball;
+    [SerializeField]private Rigidbody2D _ball;
     // Force value
-    private float _force = 0f;
+    [SerializeField]private float _force = 0f;
     // ArrowRotation variable
-    private ArrowRotation _rotation;
+    [SerializeField]private ArrowRotation _rotation;
     public Image arrowSprite2;
     // Start is called before the first frame update
     void Start()

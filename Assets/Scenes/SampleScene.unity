@@ -1070,6 +1070,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 735735398170030912, guid: 2539504aafda5dc45bc2bd41ce576608, type: 3}
   m_PrefabInstance: {fileID: 735735397322311138}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1317615268 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 735735398170030913, guid: 2539504aafda5dc45bc2bd41ce576608, type: 3}
+  m_PrefabInstance: {fileID: 735735397322311138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1317615272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1082,6 +1087,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d560247b13699f54fa97b9545c7ad724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ball: {fileID: 1317615268}
+  _force: 0
+  _rotation: {fileID: 0}
   arrowSprite2: {fileID: 598182266}
 --- !u!1 &1559760276
 GameObject:
